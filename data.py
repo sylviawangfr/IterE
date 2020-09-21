@@ -889,7 +889,7 @@ class Data():
 	def negative_triple_generator(self, input_postive_queue, output_queue):
 		while True:
 			dat = input_postive_queue.get()
-			if dat == None:
+			if (dat == None).any():
 				break
 			positive = np.asarray(dat)
 			replace_h, replace_t = [np.random.randint(self.num_entity, size=len(positive)*self.neg_samples) for i in range(2)]
