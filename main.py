@@ -47,7 +47,7 @@ def main():
 
 	# evaluation
 	parser.add_argument('--num_test', dest='num_test', type=int, default=100)
-	parser.add_argument('--test', dest='test', type=bool, default=False)
+	parser.add_argument('--test', dest='test', type=bool, default=True)
 	parser.add_argument('--test_per_iter', dest='test_per_iter', type=int, default=1)
 	parser.add_argument('--test_batch_size', dest='test_batch_size', type=int, default=10)
 

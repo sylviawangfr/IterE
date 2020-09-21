@@ -105,8 +105,8 @@ class Data():
 		f = open(triple_files, 'r')
 		triples = []
 		for line in f.readlines():
-			h, t, r = line.strip().split('\t')
-			#h, r, t = line.strip().split('\t')
+			# h, t, r = line.strip().split('\t')
+			h, r, t = line.strip().split('\t')
 			self.entities.add(h)
 			self.entities.add(t)
 			self.relations.add(r)
