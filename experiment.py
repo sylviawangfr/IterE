@@ -4,6 +4,7 @@ import time
 import logging
 from multiprocessing import JoinableQueue, Queue, Process
 import pickle
+import os
 
 class Experiment():
 	"""
@@ -205,6 +206,8 @@ class Experiment():
 												   [MR_h, FMR_h, MRR_h, FMRR_h, H1_h, FH1_h, H3_h, FH3_h, H10_h, FH10_h],
 												   [MR_t, FMR_t, MRR_t, FMRR_t, H1_t, FH1_t, H3_t, FH3_t, H10_t, FH10_t])
 		if output_rank:
+			if not os.path.exists('./save_rank/'):
+				os.makedirs('./save_rank/')
 			with open('./save_rank/rank_h_noaxiom.pickle', 'wb') as f: pickle.dump(rank_h, f, pickle.HIGHEST_PROTOCOL)
 			with open('./save_rank/rank_t_noaxiom.pickle', 'wb') as f: pickle.dump(rank_t, f, pickle.HIGHEST_PROTOCOL)
 			with open('./save_rank/frank_h_noaxiom.pickle', 'wb') as f: pickle.dump(frank_h, f, pickle.HIGHEST_PROTOCOL)
@@ -426,6 +429,8 @@ class Experiment():
 		axiom_pro = self.model.run_axiom_probability(self.sess, self.data)
 		time_e = time.time()
 		print('calculate axiom score:', time_e -time_s)
+		if not os.path.exists('./save_axiom_prob/'):
+			os.makedirs('./save_axiom_prob/')
 		with open('./save_axiom_prob/axiom_prob.pickle', 'wb') as f: pickle.dump(axiom_pro, f, pickle.HIGHEST_PROTOCOL)
 		with open('./save_axiom_prob/axiom_pools.pickle', 'wb') as f: pickle.dump(self.data.axiompool, f, pickle.HIGHEST_PROTOCOL)
 		self.data.update_valid_axioms(axiom_pro)
