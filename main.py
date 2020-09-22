@@ -27,7 +27,7 @@ def main():
 	parser.add_argument('--regularizer_type', dest='regularizer_type', type=str, default='L1')
 	parser.add_argument('--regularizer_weight', dest='regularizer_weight', type=float, default=1e-3)
 	# experiment
-	parser.add_argument('--train', dest='train', type=bool, default=True)
+	parser.add_argument('--train', dest='train', type=bool, default=False)
 	parser.add_argument('--max_epoch', dest='max_epoch', type=int, default=10)
 	parser.add_argument('--update_axiom_per', dest='update_axiom_per', type=int, default=2)
 	parser.add_argument('--DEBUG', dest='DEBUG', type=bool, default=True)
